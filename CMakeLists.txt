@@ -15,7 +15,7 @@ option(WITH_ASAN "Compile with address sanitizer support" OFF)
 # #
 include(DefineCXX17CompilerFlag)
 DEFINE_CXX_17_COMPILER_FLAG(CXX17_FLAG)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic")
 
 add_library(urcl SHARED
     src/comm/tcp_socket.cpp
@@ -116,7 +116,7 @@ install(FILES ur_client_libraryConfig.cmake
 # Installing this in non-ROS environments won't have any effect, but it won't harm, either.
 install(FILES package.xml DESTINATION share/${PROJECT_NAME})
 
-# # ## Begin import ####
+# # # # Begin import ####
 # Imported from ros-industrial/ros_industrial_cmake_boilerplate
 # https://github.com/ros-industrial/ros_industrial_cmake_boilerplate/blob/59b86df662/ros_industrial_cmake_boilerplate/cmake/cmake_tools.cmake
 # Copyright (C) 2018 by George Cave - gcave@stablecoder.ca
@@ -130,6 +130,6 @@ file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ament_prefix_p
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ament_prefix_path.dsv DESTINATION share/${PROJECT_NAME}/hook)
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ros_package_path.dsv "prepend-non-duplicate;ROS_PACKAGE_PATH;")
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ros_package_path.dsv DESTINATION share/${PROJECT_NAME}/hook)
-# # ## End iport ####
+# # # # End iport ####
 
 install(DIRECTORY resources DESTINATION share/${PROJECT_NAME})
