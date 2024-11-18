@@ -52,7 +52,7 @@ add_library(urcl SHARED
 )
 add_library(ur_client_library::urcl ALIAS urcl)
 target_compile_options(urcl PRIVATE -Wall -Wextra -Wno-unused-parameter)
-target_compile_options(urcl PUBLIC ${CXX17_FLAG})
+# target_compile_options(urcl PUBLIC ${CXX17_FLAG})
 if(WITH_ASAN)
   target_compile_options(urcl PUBLIC -fsanitize=address)
   target_link_options(urcl PUBLIC -fsanitize=address)
@@ -116,7 +116,7 @@ install(FILES ur_client_libraryConfig.cmake
 # Installing this in non-ROS environments won't have any effect, but it won't harm, either.
 install(FILES package.xml DESTINATION share/${PROJECT_NAME})
 
-# # # # Begin import # ###
+# # # # Begin import # # ##
 # Imported from ros-industrial/ros_industrial_cmake_boilerplate
 # https://github.com/ros-industrial/ros_industrial_cmake_boilerplate/blob/59b86df662/ros_industrial_cmake_boilerplate/cmake/cmake_tools.cmake
 # Copyright (C) 2018 by George Cave - gcave@stablecoder.ca
@@ -130,6 +130,6 @@ file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ament_prefix_p
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ament_prefix_path.dsv DESTINATION share/${PROJECT_NAME}/hook)
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ros_package_path.dsv "prepend-non-duplicate;ROS_PACKAGE_PATH;")
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ros_package_path.dsv DESTINATION share/${PROJECT_NAME}/hook)
-# # # # End iport # ###
+# # # # End iport # # ##
 
 install(DIRECTORY resources DESTINATION share/${PROJECT_NAME})
