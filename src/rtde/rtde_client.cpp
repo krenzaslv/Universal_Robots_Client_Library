@@ -203,6 +203,11 @@ bool RTDEClient::negotiateProtocolVersion(const uint16_t protocol_version)
   throw UrException(ss.str());
 }
 
+ClientState RTDEClient::clientState() const
+{
+  return client_state_;
+}
+
 void RTDEClient::queryURControlVersion()
 {
   unsigned int num_retries = 0;

@@ -129,6 +129,9 @@ public:
    *
    * \returns Success of the handshake
    */
+
+  ClientState clientState() const;
+
   bool init(const size_t max_num_tries = 0,
             const std::chrono::milliseconds reconnection_time = std::chrono::seconds(10));
   /*!
